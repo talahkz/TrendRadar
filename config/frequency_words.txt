@@ -2,129 +2,215 @@
 灵犀
 稚晖君
 彭志辉
+
 字节
 bytedance
 张一鸣
+
 Tesla
 Elon Musk
 特斯拉
 马斯克
+
 微软
 Microsoft
+
 英伟达
 NVIDIA
 黄仁勋
+
 AMD
+
 谷歌
 google
 gemini
 deepmind
+
 chatgpt
 openai
 sora
+
 claude
 Anthropic
+
 iphone
 ipad
 mac
 ios
-ai
-人工智能
-自动驾驶
-机器人
-美国
-芯片
-光刻机
-科技
-核能
-水电站
-DGXX
-Digi Power X
-digipowerx
-XPENG
-XPEV
-BYD
-比亚迪
-王传福
-宇树
-王兴兴
+
 Llama
 Meta AI
+
 Mistral
+
 Groq
+
 Together AI
+
 Hugging Face
+
 阿里
 阿里云
 Qwen
+
 Baidu
 文心
 百度
 通义千问
+
 智谱AI
+
 商汤科技
 SenseTime
+
 旷视科技
 Megvii
+
 零一万物
 月之暗面
 Kimi AI
+
 Boston Dynamics
+
 Figure AI
+
 1X Technologies
+
 Sanctuary AI
+
 Agility Robotics
+
 优必选
 UBTech
+
 傅利叶智能
+
 达闼科技
+
+宇树
+王兴兴
+
+Tesla
+Elon Musk
+特斯拉
+马斯克
+Tesla Energy
+
 Waymo
+
 Cruise
+
 Mobileye
+
+XPENG
+XPEV
 小鹏
 何小鹏
+
+BYD
+比亚迪
+王传福
+
 Li Auto
 理想
+
 Nio
 蔚来
+
 问界
+
 Huawei
+
 Baidu Apollo
 百度自动驾驶
+
 阿里达摩院自动驾驶
+
+NVIDIA
+英伟达
+黄仁勋
+
+AMD
+
 Qualcomm
 高通
+
 Intel
+
 Broadcom
+
 ASML
+光刻机
+
 Applied Materials
+
 Lam Research
+
 Tokyo Electron
+
 TSMC
 台积电
+
 中芯国际
 SMIC
+
 华为
 阿里含光芯片
+
 芯片自主
 国产替代
+
 NuScale
+
 Commonwealth Fusion
+
 小核酸
+
 中国核电
-Tesla Energy
+
 宁德时代
 CATL
+
 Apple
+
 Alibaba
 马云
+
 李彦宏
+
 Sam Altman
+
 Dario Amodei
+
 Demis Hassabis
+
 Yann LeCun
+
+ai
+人工智能
 AGI
+
 inference
+
 量子计算
+
+自动驾驶
+
+机器人
+
+芯片
+
+科技
+
+核能
+
+水电站
+
+美国
 中国
+
 技术竞争
+
+DGXX
+Digi Power X
+digipowerx

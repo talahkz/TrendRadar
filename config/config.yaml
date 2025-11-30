@@ -27,7 +27,7 @@ crawler:
 
 # Report mode selection
 report:
-  mode: "daily" # Options: "daily"|"incremental"|"current"
+  mode: "incremental" # Options: "daily"|"incremental"|"current"
   rank_threshold: 5 # Rank highlight threshold
   sort_by_position_first: false # Sort priority: true=sort by config position first, false=sort by hot item count first
   max_news_per_keyword: 0 # Max news items per keyword, 0=unlimited
@@ -136,25 +136,25 @@ external_platforms:
 # The name field can be any custom name for display purposes only
 # Changing the name after running for days will not affect code functionality
 platforms:
-  - id: "toutiao"
-    name: "Toutiao"
   - id: "baidu"
     name: "Baidu"
   - id: "wallstreetcn-hot"
     name: "Wallstreetcn"
-  - id: "thepaper"
-    name: "The Paper"
   - id: "bilibili-hot-search"
     name: "Bilibili"
-  - id: "cls-hot"
-    name: "CLS"
-  - id: "ifeng"
-    name: "iFeng"
-  - id: "tieba"
-    name: "Tieba"
   - id: "weibo"
     name: "Weibo"
-  - id: "douyin"
-    name: "Douyin"
   - id: "zhihu"
     name: "Zhihu"
+  - id: "xueqiu"
+    name: "Xueqiu"
+  - id: "xueqiu-hotstock"
+    name: "Xueqiu Hot Stocks"
+  - id: "gelonghui"
+    name: "Gelonghui"
+  - id: "jin10"
+    name: "Jin10"
+  - id: "cls-telegraph"
+    name: "CLS Telegraph"
+  - id: "wallstreetcn-quick"
+    name: "WSJ CN Quick"

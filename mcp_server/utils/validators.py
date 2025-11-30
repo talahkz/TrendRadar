@@ -15,73 +15,83 @@ from .date_parser import DateParser
 
 def get_supported_platforms() -> List[str]:
     """
-    从 config.yaml 动态获取支持的平台列表
+    Dynamically get list of supported platforms from config.yaml
 
     Returns:
-        平台ID列表
+        List of platform IDs
 
     Note:
-        - 读取失败时返回空列表，允许所有平台通过（降级策略）
-        - 平台列表来自 config/config.yaml 中的 platforms 配置
+        - Returns empty list on failure, allowing all platforms (graceful degradation)
+        - Platform list comes from config/config.yaml platforms and external_platforms
     """
     try:
-        # 获取 config.yaml 路径（相对于当前文件）
+        # Get config.yaml path (relative to current file)
         current_dir = os.path.dirname(os.path.abspath(__file__))
         config_path = os.path.join(current_dir, "..", "..", "config", "config.yaml")
         config_path = os.path.normpath(config_path)
 
         with open(config_path, 'r', encoding='utf-8') as f:
             config = yaml.safe_load(f)
+
+            # Get newsnow platforms
             platforms = config.get('platforms', [])
-            return [p['id'] for p in platforms if 'id' in p]
+            platform_ids = [p['id'] for p in platforms if 'id' in p]
+
+            # Get external platforms (e.g., Reddit)
+            external_platforms = config.get('external_platforms', {})
+            for platform_id, platform_config in external_platforms.items():
+                if platform_config.get('enabled', False):
+                    platform_ids.append(platform_id)
+
+            return platform_ids
     except Exception as e:
-        # 降级方案：返回空列表，允许所有平台
-        print(f"警告：无法加载平台配置 ({config_path}): {e}")
+        # Graceful degradation: return empty list, allow all platforms
+        print(f"Warning: Could not load platform config ({config_path}): {e}")
         return []
 
 
 def validate_platforms(platforms: Optional[List[str]]) -> List[str]:
     """
-    验证平台列表
+    Validate platform list
 
     Args:
-        platforms: 平台ID列表，None表示使用 config.yaml 中配置的所有平台
+        platforms: List of platform IDs, None means use all platforms from config.yaml
 
     Returns:
-        验证后的平台列表
+        Validated platform list
 
     Raises:
-        InvalidParameterError: 平台不支持
+        InvalidParameterError: Platform not supported
 
     Note:
-        - platforms=None 时，返回 config.yaml 中配置的平台列表
-        - 会验证平台ID是否在 config.yaml 的 platforms 配置中
-        - 配置加载失败时，允许所有平台通过（降级策略）
+        - When platforms=None, returns platform list from config.yaml
+        - Validates platform IDs against config.yaml platforms configuration
+        - On config load failure, allows all platforms (graceful degradation)
     """
     supported_platforms = get_supported_platforms()
 
     if platforms is None:
-        # 返回配置文件中的平台列表（用户的默认配置）
+        # Return platform list from config file (user's default config)
         return supported_platforms if supported_platforms else []
 
     if not isinstance(platforms, list):
-        raise InvalidParameterError("platforms 参数必须是列表类型")
+        raise InvalidParameterError("platforms parameter must be a list")
 
     if not platforms:
-        # 空列表时，返回配置文件中的平台列表
+        # Empty list: return platform list from config file
         return supported_platforms if supported_platforms else []
 
-    # 如果配置加载失败（supported_platforms为空），允许所有平台通过
+    # If config load failed (supported_platforms is empty), allow all platforms
     if not supported_platforms:
-        print("警告：平台配置未加载，跳过平台验证")
+        print("Warning: Platform config not loaded, skipping platform validation")
         return platforms
 
-    # 验证每个平台是否在配置中
+    # Validate each platform is in config
     invalid_platforms = [p for p in platforms if p not in supported_platforms]
     if invalid_platforms:
         raise InvalidParameterError(
-            f"不支持的平台: {', '.join(invalid_platforms)}",
-            suggestion=f"支持的平台（来自config.yaml）: {', '.join(supported_platforms)}"
+            f"Unsupported platform(s): {', '.join(invalid_platforms)}",
+            suggestion=f"Supported platforms (from config.yaml): {', '.join(supported_platforms)}"
         )
 
     return platforms

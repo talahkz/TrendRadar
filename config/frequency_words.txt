@@ -111,3 +111,8 @@ ai
 宇宙
 飞船
 航空
+
+
+DGXX
+Digi Power X
+digipowerx

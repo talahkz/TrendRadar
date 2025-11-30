@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__trendradar__get_latest_news"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

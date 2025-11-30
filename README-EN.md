@@ -1,3 +1,9 @@
+Run using:
+
+```bash
+  source .env && uv run python main.py
+```
+
 <div align="center" id="trendradar">
 
 <a href="https://github.com/sansan0/TrendRadar" title="TrendRadar">
